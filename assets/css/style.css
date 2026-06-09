@@ -1,0 +1,308 @@
+/* ============================================================
+   SORTUDÃO — Front Duplo (campanha Diego Rox / PDV d7066o)
+   Design system artesanal. Paleta + tipografia extraídas da
+   arte oficial do checkout. Sem framework: controle total.
+   ============================================================ */
+
+:root{
+  /* Navy do banner oficial */
+  --navy-900:#06122e;
+  --navy-800:#0a1a3f;
+  --navy-700:#0e2350;
+  --navy-600:#143063;
+  --navy-card:#0f2147;
+
+  /* Verde Sortudão */
+  --green-500:#21c25e;
+  --green-600:#16a34a;
+  --green-700:#0f7a37;
+  --green-glow:rgba(33,194,94,.45);
+
+  /* Ouro / amarelo da moeda */
+  --gold-400:#fede35;
+  --gold-500:#f4b647;
+  --gold-600:#f7931e;
+
+  /* Urgência */
+  --red-500:#dc2626;
+  --red-600:#b91c1c;
+
+  /* Neutros */
+  --white:#ffffff;
+  --ink-100:#eef2f9;
+  --ink-300:#c2cce0;
+  --ink-400:#94a3c4;
+  --ink-500:#6b7aa0;
+  --line:rgba(255,255,255,.10);
+
+  --radius:18px;
+  --radius-lg:26px;
+  --shadow-card:0 24px 60px -20px rgba(0,0,0,.65);
+  --shadow-gold:0 18px 40px -12px rgba(244,182,71,.5);
+  --shadow-green:0 18px 44px -10px var(--green-glow);
+  --maxw:1180px;
+  --font-display:'Lato',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  color:var(--ink-100);
+  background:var(--navy-900);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* textura de notas/ruído sutil sobre o navy */
+.bg-money{
+  position:relative;
+  background:
+    radial-gradient(1200px 600px at 75% -8%, rgba(20,48,99,.9), transparent 60%),
+    radial-gradient(900px 500px at 8% 12%, rgba(15,122,55,.18), transparent 55%),
+    linear-gradient(180deg,var(--navy-800) 0%, var(--navy-900) 100%);
+}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.section{padding:64px 0}
+@media(min-width:768px){.section{padding:88px 0}}
+
+/* ---------- Tipografia ---------- */
+.kicker{
+  font-family:var(--font-body);
+  font-weight:800;
+  font-size:12.5px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold-400);
+  display:inline-flex;align-items:center;gap:8px;
+}
+h1,h2,h3{font-family:var(--font-display);font-weight:900;line-height:1.02;letter-spacing:-.02em}
+h1{font-size:clamp(34px,7vw,68px);color:var(--white)}
+h2{font-size:clamp(27px,4.6vw,46px);color:var(--white)}
+h3{font-size:clamp(19px,2.4vw,26px);color:var(--white)}
+.lead{font-size:clamp(16px,2vw,20px);color:var(--ink-300);max-width:60ch}
+.gold{color:var(--gold-400)}
+.green{color:var(--green-500)}
+.u-underline{
+  background:linear-gradient(transparent 62%, rgba(244,182,71,.35) 0);
+}
+
+/* ---------- Top trust bar ---------- */
+.trustbar{
+  background:var(--navy-900);
+  border-bottom:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-400);
+}
+.trustbar .wrap{display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap;padding-top:9px;padding-bottom:9px;text-align:center}
+.trustbar b{color:var(--ink-100);font-weight:700}
+.trustbar .dot{width:5px;height:5px;border-radius:50%;background:var(--green-500)}
+
+/* ---------- Header ---------- */
+.site-head{padding:18px 0 6px}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:46px;width:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+.brand-tag{
+  font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green-500);border:1px solid rgba(33,194,94,.4);
+  padding:5px 10px;border-radius:999px;background:rgba(33,194,94,.08)
+}
+.head-cta{display:none}
+@media(min-width:860px){.head-cta{display:inline-flex}}
+
+/* ---------- Botões ---------- */
+.btn{
+  --b:var(--green-500);
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-display);font-weight:900;letter-spacing:.01em;
+  font-size:17px;color:#06210f;
+  background:linear-gradient(180deg,#2ee06b,#16a34a);
+  border:none;border-radius:14px;padding:16px 26px;cursor:pointer;
+  box-shadow:var(--shadow-green),inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  text-align:center;line-height:1.1;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn:active{transform:translateY(0)}
+.btn--gold{color:#3a2400;background:linear-gradient(180deg,#ffe566,#f4b647);box-shadow:var(--shadow-gold),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn--lg{font-size:19px;padding:19px 30px;width:100%}
+.btn--sm{font-size:14px;padding:11px 18px}
+.btn .sub{font-weight:700;font-family:var(--font-body);font-size:12px;opacity:.85;display:block;margin-top:2px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding-top:34px}
+.hero-grid{display:grid;gap:34px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}}
+.hero h1 span.big{display:block}
+.hero .quote-mark{color:var(--gold-500);font-size:.8em}
+.hero-sub{margin-top:18px}
+.hero-prizes{
+  display:flex;gap:10px;flex-wrap:wrap;margin-top:26px
+}
+.prize-chip{
+  flex:1 1 150px;background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:14px;padding:13px 15px;backdrop-filter:blur(4px)
+}
+.prize-chip .v{font-family:var(--font-display);font-weight:900;font-size:25px;color:var(--gold-400);line-height:1}
+.prize-chip .l{font-size:11.5px;color:var(--ink-400);text-transform:uppercase;letter-spacing:.07em;margin-top:5px;font-weight:600}
+
+.hero-art{position:relative}
+.hero-art img{
+  border-radius:var(--radius-lg);border:1px solid var(--line);
+  box-shadow:var(--shadow-card)
+}
+.hero-art .float-badge{
+  position:absolute;left:-6px;bottom:18px;
+  background:var(--navy-900);border:1px solid rgba(33,194,94,.5);
+  border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;
+  box-shadow:0 14px 30px rgba(0,0,0,.5)
+}
+.float-badge .verify{width:22px;height:22px;border-radius:50%;background:var(--green-500);display:grid;place-items:center;color:#06210f;font-weight:900;font-size:12px}
+.float-badge b{font-size:13px;color:var(--white)}
+.float-badge small{display:block;font-size:11px;color:var(--ink-400)}
+
+/* ---------- FRONT DUPLO ---------- */
+.duo{position:relative}
+.duo-head{text-align:center;max-width:680px;margin:0 auto 38px}
+.duo-head .lead{margin:14px auto 0}
+.duo-grid{display:grid;gap:20px}
+@media(min-width:820px){.duo-grid{grid-template-columns:1fr 1fr;align-items:stretch}}
+
+.pack{
+  position:relative;background:
+    linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:28px 24px 26px;display:flex;flex-direction:column;
+  box-shadow:var(--shadow-card)
+}
+.pack--hot{
+  border-color:rgba(244,182,71,.55);
+  background:linear-gradient(180deg,rgba(244,182,71,.10),rgba(15,33,71,.4));
+  box-shadow:0 26px 70px -22px rgba(244,182,71,.4)
+}
+.pack__flag{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-display);font-weight:900;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:#3a2400;background:linear-gradient(180deg,#ffe566,#f4b647);
+  padding:6px 16px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow-gold)
+}
+.pack__name{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-400)}
+.pack__price{display:flex;align-items:flex-end;gap:8px;margin:10px 0 2px}
+.pack__price .cur{font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--ink-300);margin-bottom:7px}
+.pack__price .val{font-family:var(--font-display);font-weight:900;font-size:60px;line-height:.85;color:var(--white)}
+.pack--hot .pack__price .val{color:var(--gold-400)}
+.pack__chances{font-size:15px;color:var(--ink-300);margin-top:4px}
+.pack__chances b{color:var(--green-500);font-weight:800}
+.pack__list{list-style:none;margin:20px 0 24px;display:flex;flex-direction:column;gap:12px}
+.pack__list li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--ink-100)}
+.pack__list .ic{flex:0 0 22px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;margin-top:1px}
+.pack__list .ic--g{background:rgba(33,194,94,.16);color:var(--green-500)}
+.pack__list .ic--y{background:rgba(244,182,71,.18);color:var(--gold-400)}
+.pack__list strong{color:var(--white)}
+.pack__cta{margin-top:auto}
+.pack__foot{text-align:center;font-size:12px;color:var(--ink-500);margin-top:12px}
+
+/* faixa comparativa de raspadinhas */
+.scratch-row{display:flex;gap:6px;margin-top:6px}
+.scratch{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.10)}
+.scratch.on{background:linear-gradient(90deg,var(--gold-500),var(--gold-400))}
+
+/* ---------- COMO FUNCIONA ---------- */
+.steps{display:grid;gap:18px;margin-top:42px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--navy-card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;position:relative}
+.step .n{font-family:var(--font-display);font-weight:900;font-size:15px;color:#06210f;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,#2ee06b,#16a34a);margin-bottom:16px}
+.step h3{font-size:19px;margin-bottom:8px}
+.step p{font-size:14.5px;color:var(--ink-300)}
+
+/* ---------- HISTÓRIA (Rox) ---------- */
+.story{background:
+  radial-gradient(700px 400px at 90% 0%, rgba(15,122,55,.16), transparent 60%),
+  var(--navy-800);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.story-grid{display:grid;gap:34px;align-items:center}
+@media(min-width:920px){.story-grid{grid-template-columns:.9fr 1.1fr;gap:46px}}
+.story-art img{border-radius:var(--radius-lg);border:1px solid var(--line);box-shadow:var(--shadow-card)}
+.story blockquote{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(22px,3vw,34px);line-height:1.12;color:var(--white);
+  letter-spacing:-.01em;margin:6px 0 18px
+}
+.story blockquote .gold{display:inline}
+.story p{font-size:16px;color:var(--ink-300);margin-bottom:14px}
+.story .sign{font-family:var(--font-display);font-weight:900;color:var(--green-500);font-size:16px;margin-top:8px}
+.story .sign small{display:block;color:var(--ink-400);font-weight:400;font-family:var(--font-body);font-size:13px}
+
+/* ---------- PRÊMIOS ---------- */
+.prizes-grid{display:grid;gap:18px;margin-top:40px}
+@media(min-width:760px){.prizes-grid{grid-template-columns:repeat(3,1fr)}}
+.prize{
+  border-radius:var(--radius-lg);padding:28px 24px;position:relative;overflow:hidden;
+  border:1px solid var(--line);background:var(--navy-card)
+}
+.prize--main{background:linear-gradient(160deg,rgba(33,194,94,.18),var(--navy-card));border-color:rgba(33,194,94,.45)}
+.prize .tag{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-400)}
+.prize .amount{font-family:var(--font-display);font-weight:900;font-size:46px;color:var(--gold-400);line-height:1;margin:10px 0 6px}
+.prize--main .amount{color:var(--green-500)}
+.prize .when{font-size:13.5px;color:var(--ink-300)}
+.prize .desc{font-size:13.5px;color:var(--ink-400);margin-top:10px}
+
+/* ---------- LEGITIMIDADE ---------- */
+.legit{background:var(--navy-900)}
+.legit-grid{display:grid;gap:22px}
+@media(min-width:760px){.legit-grid{grid-template-columns:repeat(3,1fr)}}
+.legit-card{display:flex;gap:14px;align-items:flex-start;background:var(--navy-card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.legit-card .ic{flex:0 0 40px;width:40px;height:40px;border-radius:11px;background:rgba(33,194,94,.14);display:grid;place-items:center;color:var(--green-500);font-size:20px}
+.legit-card h3{font-size:16px;margin-bottom:5px}
+.legit-card p{font-size:13.5px;color:var(--ink-400)}
+.legit-logos{display:flex;gap:30px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:40px;opacity:.9}
+.legit-logos img{height:34px;width:auto;filter:brightness(0) invert(1);opacity:.8}
+.legit-logos .ivm{height:46px;filter:none;opacity:1;background:#fff;border-radius:8px;padding:6px 10px}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:780px;margin:0 auto}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--navy-card);margin-bottom:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-family:var(--font-display);font-weight:900;font-size:16.5px;color:var(--white);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .plus{flex:0 0 24px;color:var(--green-500);font-size:22px;transition:transform .2s}
+.faq details[open] summary .plus{transform:rotate(45deg)}
+.faq .a{padding:0 22px 20px;color:var(--ink-300);font-size:15px}
+.faq .a b{color:var(--ink-100)}
+
+/* ---------- CTA final band ---------- */
+.finalcta{background:
+  radial-gradient(600px 300px at 50% 0,rgba(33,194,94,.22),transparent 60%),
+  var(--navy-800);text-align:center;border-top:1px solid var(--line)}
+.finalcta h2{max-width:18ch;margin:0 auto 14px}
+.finalcta .lead{margin:0 auto 28px}
+
+/* ---------- Footer ---------- */
+.site-foot{background:var(--navy-900);border-top:1px solid var(--line);padding:46px 0 60px;font-size:12.5px;color:var(--ink-500)}
+.foot-top{display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between;margin-bottom:26px}
+.foot-logos{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.foot-logos img{height:30px;width:auto}
+.foot-logos .sortudao{height:40px}
+.foot-logos .invert{filter:brightness(0) invert(1);opacity:.7}
+.foot-legal{line-height:1.7;color:var(--ink-500);max-width:none}
+.foot-legal strong{color:var(--ink-400)}
+.foot-meta{margin-top:18px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;color:var(--ink-500)}
+.age{font-weight:900;color:#fff;background:var(--red-600);border-radius:7px;padding:3px 9px;font-size:12px;font-family:var(--font-display)}
+
+/* sticky mobile CTA */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:rgba(6,18,46,.92);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:10px 14px;display:flex;gap:10px;
+  transform:translateY(120%);transition:transform .3s ease
+}
+.sticky.show{transform:translateY(0)}
+.sticky .btn{flex:1;padding:13px 10px;font-size:14.5px}
+@media(min-width:820px){.sticky{display:none}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
